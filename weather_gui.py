@@ -7,7 +7,7 @@ import requests
 
 def data_get():
     city = city_name.get()
-    api_key = "017dc23f15e96f7cc6e86c85ea6d8daf"  # Replace with your OpenWeatherMap API key
+    api_key = "017dc23f15e96f7cc6e86c85ea6d8daf" 
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     data = requests.get(url).json()
 
@@ -24,11 +24,24 @@ def on_leave(event):
 
 
 win = tk.Tk()
+win.configure(bg="lightblue")
 win.title("Weather App")
 img = tk.PhotoImage(file="cloudy.png")
 win.iconphoto(win, img)
-win.geometry("500x570")
-win.configure(bg="lightblue")
+
+# Set window size and position
+window_width = 500
+window_height = 570
+
+screen_width = win.winfo_screenwidth()
+screen_height = win.winfo_screenheight()
+
+x_coordinate = (screen_width // 2) - (window_width // 2)
+y_coordinate = (screen_height // 2) - (window_height // 2)
+
+# Set the window geometry to be centered on the screen
+win.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
 
 # Header Label
 header_label = tk.Label(win, text="Weather App!", font=("Georgia", 30, "bold"), fg="green", bg="lightblue")
@@ -75,4 +88,3 @@ done_button.bind("<Leave>", on_leave)
 
 
 win.mainloop()
-
