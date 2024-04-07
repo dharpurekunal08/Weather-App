@@ -1,3 +1,4 @@
+**Hare Krishna!**
 # Weather App
 
 This is a simple weather application built using Python's tkinter library for the GUI and OpenWeatherMap API to fetch weather data based on selected cities.
